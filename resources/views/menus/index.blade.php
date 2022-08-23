@@ -24,10 +24,10 @@
                                 {{-- <input readonly value="{{$menu->menuFmrestaurant->restaurant}} - {{$menu->menuFmrestaurant->city}}"> --}}
 
 
-                                <h1>{{$menu->menu}}
+                                <h1>{{$menu->menu}} Menu
                                 </h1>
-                                <div class="image-box">
-                                    <input class="form-control" type="text" name="price" value="{{$menu->price}}" />
+                                <div class="service-box">
+                                    <input class="form-control" type="text" name="price" value="{{$menu->price}}" />Eur
                                 </div>
 
 
