@@ -30,13 +30,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Restaurant
 Route::prefix('restaurants')->name('restaurants-')->group(
     function () {
-        Route::get('/', [R::class, 'index'])->name('index')->middleware('roleblade:user');
-        Route::get('/create', [R::class, 'create'])->name('create')->middleware('roleblade:admin');
-        Route::post('', [R::class, 'store'])->name('store')->middleware('roleblade:admin');
-        Route::get('/edit/{restaurant}', [R::class, 'edit'])->name('edit')->middleware('roleblade:admin');
-        Route::put('/{restaurant}', [R::class, 'update'])->name('update')->middleware('roleblade:admin');
-        Route::delete('/{restaurant}', [R::class, 'destroy'])->name('delete')->middleware('roleblade:admin');
-        Route::get('/show/{id}', [R::class, 'show'])->name('show')->middleware('roleblade:user');
+        Route::get('/', [R::class, 'index'])->name('index');
+        Route::get('/create', [R::class, 'create'])->name('create');
+        Route::post('', [R::class, 'store'])->name('store');
+        Route::get('/edit/{restaurant}', [R::class, 'edit'])->name('edit');
+        Route::put('/{restaurant}', [R::class, 'update'])->name('update');
+        Route::delete('/{restaurant}', [R::class, 'destroy'])->name('delete');
+        Route::get('/show/{id}', [R::class, 'show'])->name('show');
     }
 );
 
@@ -44,13 +44,13 @@ Route::prefix('restaurants')->name('restaurants-')->group(
 //Menus
 Route::prefix('menus')->name('menus-')->group(
     function () {
-        Route::get('', [M::class, 'index'])->name('index')->middleware('roleblade:user');
-        Route::get('/create', [M::class, 'create'])->name('create')->middleware('roleblade:admin');
-        Route::post('', [M::class, 'store'])->name('store')->middleware('roleblade:admin');
-        Route::get('/edit/{menu}', [M::class, 'edit'])->name('edit')->middleware('roleblade:admin');
-        Route::put('/{menu}', [M::class, 'update'])->name('update')->middleware('roleblade:admin');
-        Route::delete('/{menu}', [M::class, 'destroy'])->name('delete')->middleware('roleblade:admin');
-        Route::get('/show/{id}', [M::class, 'show'])->name('show')->middleware('roleblade:user');
+        Route::get('', [M::class, 'index'])->name('index');
+        Route::get('/create', [M::class, 'create'])->name('create');
+        Route::post('', [M::class, 'store'])->name('store');
+        Route::get('/edit/{menu}', [M::class, 'edit'])->name('edit');
+        Route::put('/{menu}', [M::class, 'update'])->name('update');
+        Route::delete('/{menu}', [M::class, 'destroy'])->name('delete');
+        Route::get('/show/{id}', [M::class, 'show'])->name('show');
     }
 );
 
@@ -58,30 +58,30 @@ Route::prefix('menus')->name('menus-')->group(
 //Dishes
 Route::prefix('dishes')->name('dishes-')->group(
     function () {
-        Route::get('', [D::class, 'index'])->name('index')->middleware('roleblade:user');
-        Route::get('/create', [D::class, 'create'])->name('create')->middleware('roleblade:admin');
-        Route::post('', [D::class, 'store'])->name('store')->middleware('roleblade:admin');
-        Route::get('/edit/{dish}', [D::class, 'edit'])->name('edit')->middleware('roleblade:admin');
-        Route::put('/{dish}', [D::class, 'update'])->name('update')->middleware('roleblade:admin');
-        Route::delete('/{dish}', [D::class, 'destroy'])->name('delete')->middleware('roleblade:admin');
-        Route::get('/show/{id}', [D::class, 'show'])->name('show')->middleware('roleblade:user');
-        Route::put('/delete-pic/{dish}', [D::class, 'deletePic'])->name('delete-pic')->middleware('roleblade:admin');
+        Route::get('', [D::class, 'index'])->name('index');
+        Route::get('/create', [D::class, 'create'])->name('create');
+        Route::post('', [D::class, 'store'])->name('store');
+        Route::get('/edit/{dish}', [D::class, 'edit'])->name('edit');
+        Route::put('/{dish}', [D::class, 'update'])->name('update');
+        Route::delete('/{dish}', [D::class, 'destroy'])->name('delete');
+        Route::get('/show/{id}', [D::class, 'show'])->name('show');
+        Route::put('/delete-pic/{dish}', [D::class, 'deletePic'])->name('delete-pic');
     }
 );
 
 //front
-Route::get('', [F::class, 'index'])->name('front-index')->middleware('roleblade:user');
-Route::post('add-it-to-cart', [O::class, 'add'])->name('front-add')->middleware('roleblade:user');
-Route::get('my-order', [O::class, 'showMyOrders'])->name('my-order')->middleware('roleblade:user');
-Route::post('add-travel-to-the-cart', [Cart::class, 'add'])->name('front-add-cart')->middleware('roleblade:admin');
-Route::get('my-small-cart', [Cart::class, 'showSmallCart'])->name('my-small-cart')->middleware('roleblade:admin');
-Route::delete('my-small-cart', [Cart::class, 'deleteSmallCart'])->name('my-small-cart')->middleware('roleblade:admin');
+Route::get('', [F::class, 'index'])->name('front-index');
+Route::post('add-it-to-cart', [O::class, 'add'])->name('front-add');
+Route::get('my-order', [O::class, 'showMyOrders'])->name('my-order');
+Route::post('add-travel-to-the-cart', [Cart::class, 'add'])->name('front-add-cart');
+Route::get('my-small-cart', [Cart::class, 'showSmallCart'])->name('my-small-cart');
+Route::delete('my-small-cart', [Cart::class, 'deleteSmallCart'])->name('my-small-cart');
 //linkas tas pats bet method kitoks. 
 
 // Orders
 Route::prefix('orders')->name('orders-')->group(
     function () {
-        Route::get('', [O::class, 'index'])->name('index')->middleware('roleblade:user');
-        Route::put('status/{order}', [O::class, 'setStatus'])->name('status')->middleware('roleblade:admin');
+        Route::get('', [O::class, 'index'])->name('index');
+        Route::put('status/{order}', [O::class, 'setStatus'])->name('status');
     }
 );
